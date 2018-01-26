@@ -1,0 +1,96 @@
+
+                          ---- EVALITA 2009 ----
+                             PoS Tagging Task
+                          ----------------------
+
+RESOURCES
+
+This tarball contains the EVALITA 2009 Resources for the PoS Tagging
+task.
+
+1 - The file "train" contains the Train Corpus annotated using the Tanl
+tagset [1] and must be used for training participating systems.
+It consists in 108,875 word forms divided into 3,719 sentences.
+
+2 - The file "devel" contains the Development Corpus, a smaller corpus
+annotated according to Tanl tagset, to be used for development.
+It consists in 5,014 word forms divided into 149 sentences.
+
+The Tanl tagset includes morphological features and consists of 328
+tags, from 14 basic categories. Documentation can be found at
+http://medialab.di.unipi.it/wiki/Tanl_POS_Tagset.
+
+The training data set consists of articles from the online edition of
+the newspaper La Repubblica (http://www.repubblica.it/).  These data
+have been annotated in several steps: the first step was performed by
+the group of Andrea Baroni at the Universita' di Bologna and consisted
+in manually assigning a set of coarse-grain POS tags; then the
+MorphIt! [2] automated tool was used to assign a list of possible
+morphological tags to each token; a conversion script incorporating
+some heuristics was used to convert the POS and morphological tags
+into the Tanl tagset. A final manual revision was applied to the whole
+corpus followed by a complete automated cross-check with an Italian
+lexicon of over 1,25 million forms.
+
+The data to be used in development are estracted form the Italian
+Wikipedia, automatically tagged and manually revised.
+
+DATA FORMAT
+
+Data adheres to the following rules:
+    * Data files contain sentences separated by a blank line.
+    * A sentence consists of one or more tokens, each one 
+      starting on a new line.
+    * A token consists of two fields described in the table below.
+      Fields are separated by one tab character.
+    * Data files are are UTF-8 encoded (unicode).
+
+Data format:
+
+Field 1: FORM 		Word form or punctuation symbol
+Field 2: POSTAG 	Fine-grained part-of-speech tag, with
+			morphology, based on the TANL tagset.
+
+Example:
+
+A	E
+ben	B
+pensarci	Vfc
+,	FF
+l'	RDns
+intervista	Sfs
+dell'	EAns
+on.	SA
+Formica	SP
+e'	VAip3s
+stata	VApsfs
+accolta	Vpsfs
+in	E
+genere	Sms
+con	E
+disinteresse	Sms
+.	FS
+
+The example illustrates some tokenization issues:
+    * abbreviations are properly identified as tokens (on.);
+    * apostrophes representing a truncation are kept with the
+      truncated token (l'intervista);
+    * possible multi-word expressions (MWE) are not combined 
+      into a single token (in_genere);
+    * clitics are not separated from the token (pensarci).
+
+COPYRIGHT
+
+Repubblica-TANL is copyrighted material which can be used for research
+purposes only and which cannot be distributed in any original or
+modified form.
+
+REFERENCES
+
+[1] Project Analisi di Testi per il Semantic Web e il Question
+Answering, http://medialab.di.unipi.it/wiki/SemaWiki.
+
+[2] E. Zanchetta, M. Baroni. 2005. Morph-it! A free corpus-based
+morphological resource for the Italian language. Proc. of Corpus
+Linguistics 2005, University of Birmingham, Birmingham,
+UK. http://dev.sslmit.unibo.it/linguistics/morph-it.php
